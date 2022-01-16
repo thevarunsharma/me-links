@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <title>Go Links Admin</title>
+    <script src="{{url_for('static', filename='jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='main.js')}}"></script>
+</head>
+
+<body>
+    <h1>Go Links Admin</h1>
+    {% if has_referrer %}
+    <div>
+        <strong>{{referrer}}</strong> not found in database
+        <br/><br/>
+    </div>
+    {% endif %}
+
+    <button id="show_add">+</button>
+    <div id="add_form" hidden>
+        <input id="key" type="text" placeholder="KEY">
+        <input id="link" type="text" placeholder="LINK"> HAS QUERY? <input id="has_query" type="checkbox" label="HAS QUERY?">
+        <button onclick="save()">ADD</button>
+    </div>
+
+    <div>
+        <input id='search_box' type="text" placeholder="search a keyword ...">
+        <button onclick="search()">Search</button>
+    </div>
+
+    <div id='search_results'>
+    </div>
+</body>
+
+</html>
