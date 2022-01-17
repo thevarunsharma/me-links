@@ -4,10 +4,10 @@ $(document).ready(function() {
     $("#show_add").click(function() {
         if ($('#show_add').html() == '+') {
             $('#show_add').html('-')
-            $('#add_form').show()
+            $('#add_form').fadeIn()
         } else {
             $('#show_add').html('+')
-            $('#add_form').hide()
+            $('#add_form').fadeOut()
         }
     })
 
@@ -35,13 +35,17 @@ function save() {
         return;
     }
 
+    $.ajaxSetup({ async: false })
+    var ok = true
     $.get('/check', { 'key': key }, function(data) {
         if (data.isKey) {
             ok = confirm(`${key} is already present in database, do you want to edit?`)
-            if (!ok)
-                return;
+            console.log(ok)
         }
     })
+    console.log(ok)
+    if (!ok)
+        return
 
     $.post('/save', data, function() {
         key = $("#key").val()
@@ -66,15 +70,19 @@ function search() {
         else if (data.status == 'NOT FOUND')
             result_box.html(`<em>No result found for ${keyword}</em>`)
         else {
-            rows = ""
+            rows = `<tr>
+            <th></th>
+            <th>KEY</th>
+            <th>URL</th>
+            <th></th>
+            </tr>`
             results = data.data
-            console.log(results)
             for (i = 0; i < results.length; i++) {
                 row = `<tr>
-                    <td>go/</td>
+                    <td style="width: 5px;">me/</td>
                     <td>${results[i][0]}</td>
                     <td>${results[i][1][0]}</td>
-                    <td><button onclick="deleteKey('${results[i][0]}')">Delete</button></td>
+                    <td><button class="deletebutton" onclick="deleteKey('${results[i][0]}')">Delete</button></td>
                 </tr>`
                 rows += row
             }
@@ -98,4 +106,8 @@ function deleteKey(key) {
             alert("Couldn't delete invalid or non-existent key")
         }
     )
+}
+
+function closeBanner() {
+    $("#banner").hide();
 }

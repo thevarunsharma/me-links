@@ -16,7 +16,7 @@ def go(arg):
     
     # key not found
     if link is None:
-        redirect_base_url = "http://go.links"
+        redirect_base_url = "http://me.links"
         params = {
             "referrer" : key
         }

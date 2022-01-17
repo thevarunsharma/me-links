@@ -1,5 +1,3 @@
-from ast import parse
-from distutils.log import debug
 from flask import Flask, jsonify, redirect, request, render_template, url_for
 from parse import PathParser
 from store import DatabaseHandler

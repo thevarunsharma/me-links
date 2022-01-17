@@ -4,29 +4,31 @@
     <title>Go Links Admin</title>
     <script src="{{url_for('static', filename='jquery.min.js')}}"></script>
     <script src="{{url_for('static', filename='main.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
 <body>
-    <h1>Go Links Admin</h1>
-    {% if has_referrer %}
-    <div>
-        <strong>{{referrer}}</strong> not found in database
-        <br/><br/>
-    </div>
-    {% endif %}
+    <div id='sticky_box'>
+        <h1>Me Links Admin</h1>
+        {% if has_referrer %}
+        <div id="banner">
+            <pre><strong>{{referrer}}</strong> not found in database</pre><button onclick="closeBanner()">✕</button>
+        </div>
+        {% endif %}
 
-    <button id="show_add">+</button>
-    <div id="add_form" hidden>
-        <input id="key" type="text" placeholder="KEY">
-        <input id="link" type="text" placeholder="LINK"> HAS QUERY? <input id="has_query" type="checkbox" label="HAS QUERY?">
-        <button onclick="save()">ADD</button>
-    </div>
+        <button id="show_add">+</button>
+        <div id="add_form" hidden>
+            me/<input id="key" type="text" placeholder="KEY" required> ▶ <input id="link" type="text" placeholder="URL" required> <input id="has_query" type="checkbox" label="HAS QUERY?">has query?
+            <button onclick="save()">ADD</button>
+        </div>
 
-    <div>
-        <input id='search_box' type="text" placeholder="search a keyword ...">
-        <button onclick="search()">Search</button>
+        <input id='search_box' type="text" placeholder="Press Enter to search ...">
     </div>
-
     <div id='search_results'>
     </div>
 </body>
