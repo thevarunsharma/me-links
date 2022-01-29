@@ -47,7 +47,6 @@ def save():
     key = request.form.get("key")
     link = request.form.get("link")
     has_query = request.form.get("has_query")
-    print(key, link, has_query)
     if not parser.is_valid(key):
         return "INVALID KEY", 400
     dbHandler.set(key, link, has_query)

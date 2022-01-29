@@ -1,3 +1,4 @@
+import os
 from pickle import dump, load
 from typing import List, Tuple
 
@@ -6,6 +7,10 @@ class DatabaseHandler:
     def __init__(self,
                  dbname: str):
         self.dbname = dbname
+        if not os.path.isfile(dbname):
+            with open(dbname, "wb") as fh:
+                dump({}, fh)
+            print(f"{dbname} doesn't exist already, so created new file")
         
     def set(self,
             key: str,
