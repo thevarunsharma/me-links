@@ -81,7 +81,7 @@ function search() {
                 row = `<tr>
                     <td style="width: 5px;">me/</td>
                     <td>${results[i][0]}</td>
-                    <td>${results[i][1][0]}</td>
+                    <td><a href='${results[i][1][0]}'>${results[i][1][0]}</a></td>
                     <td><button class="deletebutton" onclick="deleteKey('${results[i][0]}')">Delete</button></td>
                 </tr>`
                 rows += row
