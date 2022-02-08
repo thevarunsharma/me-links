@@ -16,31 +16,31 @@ h1 {
 #banner {
     margin-left: auto;
     margin-right: auto;
-    width: 60%;
+    width: 25%;
     background-color: rgb(240, 222, 142);
     color: rgb(109, 85, 25);
     border: none;
     border-radius: 10px;
-    height: 45px;
-    min-width: 400px;
+    /* height: 15%; */
+    min-width: 150px;
     position: absolute;
-    top: 300;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 10;
+    right: 10;
     z-index: 100;
 }
 
 #banner pre {
     padding-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
+    padding-left: 5px;
     text-align: center;
-    font-size: 15px;
+    font-size: 12px;
     margin-top: 0;
     margin-bottom: 0;
-    width: 91%;
+    width: 88%;
     font-weight: lighter;
     display: inline-block;
+    white-space: pre-wrap; 
 }
 
 #banner button {
@@ -50,10 +50,11 @@ h1 {
     cursor: pointer;
     font-weight: bold;
     background-color: transparent;
-    width: 5%;
-    font-size: 20px;
+    width: 10%;
+    font-size: 15px;
     padding-top: 12px;
     padding-bottom: 12px;
+    padding-right: 5px;
     float: right;
 }
 
