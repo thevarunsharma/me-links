@@ -92,7 +92,8 @@ $ supervisorctl start me_links
 After these steps the me-links server should be up and running.
 
 ## Me-Links Portal
-Type `me.links` in the browser to open the portal
+Type `me.links/` in the browser to open the portal
+![me-links-portal](setup-example/portal.png)
 
 ### Add
 Use the `+` button to add a new url shortcut.
